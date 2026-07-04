@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AI Diet & Nutrition Planner helps you create personalized meal plans, track progress, and stay consistent with healthy habits."
+    />
+    <title>AI Diet & Nutrition Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand-block">
+        <div class="brand-icon">🥗</div>
+        <div>
+          <h1>AI Diet & Nutrition Planner</h1>
+          <p>Eat Smart · Live Healthy · Stay Fit</p>
+        </div>
+      </div>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#dashboardSection">Dashboard</a>
+        <a href="#weeklySection">Weekly Plan</a>
+        <a href="#progressSection">Progress</a>
+        <a href="#contactSection">Support</a>
+      </nav>
+      <button id="logoutButton" class="secondary-btn hidden">Logout</button>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <div class="hero-copy">
+          <p class="eyebrow">Personalized nutrition for modern life</p>
+          <h2>Smart meal planning for goals, budgets, and health needs.</h2>
+          <p>
+            Build a weekly plan around your age, weight, health goals, food preferences,
+            and budget with AI-guided nutrition suggestions.
+          </p>
+          <div class="hero-actions">
+            <a href="#authSection" class="primary-btn">Start Planning</a>
+            <a href="#contactSection" class="ghost-btn">Contact Us</a>
+          </div>
+          <ul class="feature-pills">
+            <li>🧠 AI meal planner</li>
+            <li>💰 Budget mode</li>
+            <li>🩺 Health-aware recipes</li>
+          </ul>
+        </div>
+        <div class="hero-card">
+          <h3>Today’s Highlights</h3>
+          <div class="stat-grid">
+            <div class="mini-card">
+              <span>Calories</span>
+              <strong id="heroCalories">1,800</strong>
+            </div>
+            <div class="mini-card">
+              <span>Streak</span>
+              <strong>7 days</strong>
+            </div>
+            <div class="mini-card">
+              <span>Budget</span>
+              <strong>Optimized</strong>
+            </div>
+            <div class="mini-card">
+              <span>Health</span>
+              <strong>Balanced</strong>
+            </div>
+            <div class="mini-card">
+              <span>Members</span>
+              <strong id="registeredCount">0</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="authSection" class="section-card">
+        <div class="auth-header">
+          <div>
+            <p class="eyebrow">Secure access</p>
+            <h3 id="authTitle">Create your account</h3>
+          </div>
+          <div class="toggle-tabs">
+            <button class="tab-btn active" id="showRegisterBtn">Register</button>
+            <button class="tab-btn" id="showLoginBtn">Login</button>
+          </div>
+        </div>
+
+        <form id="registerForm" class="auth-form">
+          <div class="form-grid">
+            <label>
+              Name
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              Password
+              <input type="password" name="password" required />
+            </label>
+            <label>
+              Age
+              <input type="number" name="age" min="10" max="100" required />
+            </label>
+            <label>
+              Weight (kg)
+              <input type="number" name="weight" min="30" max="200" required />
+            </label>
+            <label>
+              Goal
+              <select name="goal" required>
+                <option value="loss">Weight Loss</option>
+                <option value="gain">Weight Gain</option>
+                <option value="maintenance">Maintenance</option>
+              </select>
+            </label>
+            <label>
+              Budget preference
+              <select name="budget" required>
+                <option value="budget-friendly">Budget-friendly</option>
+                <option value="standard">Standard</option>
+              </select>
+            </label>
+            <label>
+              Regional food preference
+              <select name="region" required>
+                <option value="North Indian">North Indian</option>
+                <option value="South Indian">South Indian</option>
+                <option value="East Indian">East Indian</option>
+                <option value="West Indian">West Indian</option>
+              </select>
+            </label>
+            <label>
+              Food type preference
+              <select name="foodType" required>
+                <option value="Veg">Veg</option>
+                <option value="Non-Veg">Non-Veg</option>
+                <option value="Vegan">Vegan</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            Health conditions
+            <select name="healthConditions" multiple size="4">
+              <option value="diabetes">Diabetes</option>
+              <option value="pcos">PCOS</option>
+              <option value="thyroid">Thyroid</option>
+              <option value="heart health">Heart Health</option>
+            </select>
+          </label>
+          <button type="submit" class="primary-btn full-width">Register & Start</button>
+        </form>
+
+        <form id="loginForm" class="auth-form hidden">
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" required />
+          </label>
+          <button type="submit" class="primary-btn full-width">Login</button>
+        </form>
+      </section>
+
+      <section id="dashboardSection" class="section-card hidden">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Welcome back</p>
+            <h3 id="welcomeName">Your dashboard</h3>
+          </div>
+          <div id="adminBadge" class="pill hidden">Admin access</div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="card-stack">
+            <div class="info-card">
+              <h4>Tell us about your day</h4>
+              <form id="plannerForm">
+                <div class="form-grid">
+                  <label>
+                    Age
+                    <input type="number" name="age" id="plannerAge" required />
+                  </label>
+                  <label>
+                    Weight (kg)
+                    <input type="number" name="weight" id="plannerWeight" required />
+                  </label>
+                  <label>
+                    Goal
+                    <select name="goal" id="plannerGoal" required>
+                      <option value="loss">Weight Loss</option>
+                      <option value="gain">Weight Gain</option>
+                      <option value="maintenance">Maintenance</option>
+                    </select>
+                  </label>
+                  <label>
+                    Budget
+                    <select name="budget" id="plannerBudget" required>
+                      <option value="budget-friendly">Budget-friendly</option>
+                      <option value="standard">Standard</option>
+                    </select>
+                  </label>
+                  <label>
+                    Health conditions
+                    <select name="health" id="plannerHealth" multiple size="4">
+                      <option value="diabetes">Diabetes</option>
+                      <option value="pcos">PCOS</option>
+                      <option value="thyroid">Thyroid</option>
+                      <option value="heart health">Heart Health</option>
+                    </select>
+                  </label>
+                  <label>
+                    Region
+                    <select name="region" id="plannerRegion" required>
+                      <option value="North Indian">North Indian</option>
+                      <option value="South Indian">South Indian</option>
+                      <option value="East Indian">East Indian</option>
+                      <option value="West Indian">West Indian</option>
+                    </select>
+                  </label>
+                  <label>
+                    Food type
+                    <select name="foodType" id="plannerFoodType" required>
+                      <option value="Veg">Veg</option>
+                      <option value="Non-Veg">Non-Veg</option>
+                      <option value="Vegan">Vegan</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </label>
+                </div>
+                <button type="submit" class="primary-btn full-width">Generate My Plan</button>
+              </form>
+            </div>
+            <div class="info-card">
+              <h4>Quick insights</h4>
+              <ul class="insight-list">
+                <li>🧾 Personalized calorie target</li>
+                <li>🥦 Smart swaps for your health conditions</li>
+                <li>📈 Progress tracking with streaks and badges</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card-stack">
+            <div class="info-card highlight-card">
+              <h4>Your wellness snapshot</h4>
+              <div class="snapshot-row">
+                <div>
+                  <span>Daily target</span>
+                  <strong id="targetCalories">0 kcal</strong>
+                </div>
+                <div>
+                  <span>Protein focus</span>
+                  <strong id="proteinFocus">Balanced</strong>
+                </div>
+              </div>
+              <div class="progress-bar">
+                <div id="goalBar" class="progress-fill"></div>
+              </div>
+              <p id="goalText">A tailored weekly plan will appear after you generate it.</p>
+            </div>
+            <div id="adminPanel" class="info-card hidden">
+              <h4>Admin dashboard</h4>
+              <div class="stats-grid">
+                <div>
+                  <span>Total users</span>
+                  <strong id="totalUsers">0</strong>
+                </div>
+                <div>
+                  <span>New today</span>
+                  <strong id="newUsersToday">0</strong>
+                </div>
+                <div>
+                  <span>Weekly trend</span>
+                  <strong id="weeklyTrend">0</strong>
+                </div>
+                <div>
+                  <span>Monthly trend</span>
+                  <strong id="monthlyTrend">0</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="weeklySection" class="section-card hidden">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Auto-generated plan</p>
+            <h3>Your 7-day weekly plan</h3>
+          </div>
+          <button id="progressButton" class="primary-btn">View Progress</button>
+        </div>
+        <div id="weeklyPlanGrid" class="weekly-grid"></div>
+      </section>
+
+      <section id="progressSection" class="section-card hidden">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Insights & momentum</p>
+            <h3>Nutrition and weight progress</h3>
+          </div>
+          <div class="pill">Gamified progress</div>
+        </div>
+        <div class="progress-grid">
+          <div class="info-card">
+            <h4>Daily calorie intake vs goal</h4>
+            <svg id="calorieChart" viewBox="0 0 320 160" class="chart"></svg>
+          </div>
+          <div class="info-card">
+            <h4>Nutrition trends</h4>
+            <div class="bar-chart" id="nutritionBars"></div>
+          </div>
+          <div class="info-card">
+            <h4>Streaks & achievements</h4>
+            <ul id="achievementList" class="achievement-list"></ul>
+          </div>
+          <div class="info-card">
+            <h4>Gamification points</h4>
+            <div class="points-card">
+              <strong id="pointsValue">0</strong>
+              <span>XP earned</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contactSection" class="section-card">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Support</p>
+            <h3>Team and feedback</h3>
+          </div>
+        </div>
+        <div class="contact-grid">
+          <div class="info-card">
+            <h4>Meet the team</h4>
+            <p>Hackathon Team Name</p>
+            <p>team@example.com</p>
+            <p>Hyderabad, Telangana, India</p>
+          </div>
+          <div class="info-card">
+            <h4>Quick actions</h4>
+            <div class="contact-actions">
+              <a href="mailto:team@example.com" class="ghost-btn">Contact Us</a>
+              <a href="#authSection" class="ghost-btn">Join Beta</a>
+              <a href="mailto:team@example.com?subject=Feedback" class="ghost-btn">Feedback Form</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>AI Diet & Nutrition Planner</p>
+      <p>Eat Smart · Live Healthy · Stay Fit</p>
+      <p>Empowering wellness through intelligent nutrition.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

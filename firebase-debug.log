@@ -1,0 +1,27 @@
+[debug] [2026-07-04T08:23:18.130Z] ----------------------------------------------------------------------
+[debug] [2026-07-04T08:23:18.132Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\vshiv\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2026-07-04T08:23:18.133Z] CLI Version:   15.22.4
+[debug] [2026-07-04T08:23:18.133Z] Platform:      win32
+[debug] [2026-07-04T08:23:18.133Z] Node Version:  v24.17.0
+[debug] [2026-07-04T08:23:18.133Z] Detected Agent: github_copilot_vscode_agent
+[debug] [2026-07-04T08:23:18.133Z] Time:          Sat Jul 04 2026 13:53:18 GMT+0530 (India Standard Time)
+[debug] [2026-07-04T08:23:18.133Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-04T08:23:18.139Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\hackathon\ai deit plane
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[debug] [2026-07-04T08:23:20.779Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2026-07-04T08:23:20.780Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
